@@ -1,0 +1,27 @@
+---
+- name: update web servers
+  hosts: ansible_client
+  remote_user: root
+  become: true
+  tasks:
+  - name: ensure apache is at the latest version
+    yum:
+      name: httpd
+      state: latest
+  - name: run httod
+    service:
+      name: httpd
+      state: started
+  - name: write content to first html
+    copy:
+      content: "congrats on your first anible playbook"
+      dest: /var/www/html/index.html
+- name: install vim on client
+  hosts: ansible_client
+  remote_user: root
+  become: true
+  tasks:
+  - name: installs vim
+    yum:
+      name: vim
+      state: latest
