@@ -1,0 +1,14 @@
+---
+- name: ansible
+  hosts: localhost
+  remote_user: root
+  become: true
+  tasks:
+  - name: uninstalls vim
+    yum:
+      name: vim
+      state: removed
+  - name: uninstalls httpd
+    yum:
+      name: httpd
+      state: removed
