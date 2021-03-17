@@ -1,6 +1,6 @@
 ---
 - name: update web servers
-  hosts: ansible_client
+  hosts: localhost
   remote_user: root
   become: true
   tasks:
@@ -17,7 +17,7 @@
       content: "congrats on your first anible playbook"
       dest: /var/www/html/index.html
 - name: install vim on client
-  hosts: ansible_client
+  hosts: localhost
   remote_user: root
   become: true
   tasks:

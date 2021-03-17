@@ -1,0 +1,8 @@
+---
+- hosts: ansible_client
+  become: yes
+  tasks:
+  - name: installing NTP synchronization
+    yum: name=ntp state=installed
+  - name: start the NTP service
+    service: name=ntpd state=started enabled=yes   
